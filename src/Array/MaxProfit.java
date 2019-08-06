@@ -89,6 +89,8 @@ public class MaxProfit {
         }
         return true;
     }
+
+
     public static void main(String[] args) {
         MaxProfit mp = new MaxProfit();
         int[] prices = {2,1,2,0,1};
