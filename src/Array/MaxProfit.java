@@ -90,10 +90,28 @@ public class MaxProfit {
         return true;
     }
 
+    /**
+     * 上面的算法思考的有些复杂，代码时间复杂度虽然没有那么大，但是编码确实很复杂，并且代码思想有点复杂，不容易理解。
+     * 下面这个比较简单。只要遇到明天比今天的大的就买了今天卖了明天，但是这个是考虑到只要满足这个就进行运算所以遇到连续涨的股票
+     * 的时候就连续买入卖出，就ok了，这个确实在思考的时候没有想到。
+     * @param prices
+     * @return
+     */
+    public int maxProfit2(int[] prices) {
+        int max=0;
+        for(int i=0;i<prices.length-1;i++){
+            if(prices[i]<prices[i+1]){
+                max+=prices[i+1]-prices[i];
+
+            }
+        }
+        return max;
+    }
 
     public static void main(String[] args) {
         MaxProfit mp = new MaxProfit();
-        int[] prices = {2,1,2,0,1};
+        int[] prices = {2,1,3,6,18};
         System.out.println(mp.maxProfit(prices));
+        System.out.println(mp.maxProfit2(prices));
     }
 }
