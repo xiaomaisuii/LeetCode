@@ -21,6 +21,8 @@ public class Rotate {
     public void rotate(int[] nums, int k) {
         // 进行k次的向右移动
         for (int i = 0 ;i<k ;i++){
+            // 先进行一步的移动
+            // 把最后一个给其拿出来
             int tmp = nums[ nums.length - 1];
             // 使用倒序的循环
             for (int j = nums.length - 1 ; j > 0;j--){
@@ -28,16 +30,42 @@ public class Rotate {
             }
             nums[0] = tmp;
         }
-        // 先进行一步的移动
-        // 把最后一个给其拿出来
+    }
 
+    /**
+     * 这个是以空间换时间 时间复杂度为O(n)
+     * 这个思想是把右边要移动的部分保存到一个临时数组。
+     * @param nums
+     * @param k
+     */
+    public void rotate2(int[] nums, int k) {
+        int length = nums.length;
+        if (length<k){
+            k=k%length;
+        }
+        if (k==0){
+            return;
+        }
+        //把位移的存放到临时数组当中。
+        //数组长度为k
+        int[] temp = new int[k];
+        for (int i = 0; i < k ;i++){
+            temp[i] = nums[length-k+i];
+        }
+        for (int i =length -1 ;i>=0;i--){
+            if (i<k){
+                nums[i] = temp[i];
+            }else {
+                nums[i] = nums[i-k];
+            }
+        }
     }
 
     public static void main(String[] args) {
         Rotate rotate = new Rotate();
         int[] nums = {1,2,3,4,5,6,7};
 //        System.out.println(nums[nums.length]);
-        rotate.rotate(nums, 2);
+        rotate.rotate2(nums, 2);
         for (int a :nums){
             System.out.print(a+",");
         }
