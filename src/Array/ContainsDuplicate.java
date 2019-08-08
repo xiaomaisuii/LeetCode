@@ -8,6 +8,7 @@ import java.util.HashSet;
  * @ Author: Mr.Li
  * @ Date: 2019-08-08 21:15
  * @ Description:  存在重复
+ * 完成的时间：整体上花了不到两个番茄时间，时间上提高了不少。
  **/
 public class ContainsDuplicate {
     /**
