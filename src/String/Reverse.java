@@ -77,6 +77,8 @@ public class Reverse {
      * 这个是效率最高的代码；并且思想超级简单。
      * (newResult - x%10) / 10 != result 为判断条件，这就是代表输入的数据没有益出，如果有就不相等了，那么也就不对了。
      * 这个如果让我想肯定是不好想的。
+     * 而且在转换整数的时候也不需要转换成数组在转换，这样太复杂了，直接用一个其他的变量然后取余或者取整就ok了，下次在思考的时候
+     * 如果感觉太复杂，就换一种思路取思考一下，也许这样会好很多。
      * @param x
      * @return
      */
@@ -95,12 +97,31 @@ public class Reverse {
         return result;
     }
 
+    /**
+     * 这个执行效率也特别高，而且思想也比较简单，容易想；
+     * 整数转换可以用移动位置。然后通过取整和取余的方式就可以了。
+     * @param x
+     * @return
+     */
+    public int reverse2(int x){
+        long y = 0;
+        while (x!=0){
+            y = y*10+x%10;
+            x = x/10;
+        }
+        if (y>Integer.MAX_VALUE||y<Integer.MIN_VALUE){
+            return 0;
+        }
+        return (int) y;
+    }
+
+
 
     public static void main(String[] args) {
         Reverse reverse = new Reverse();
         int x = -2147483648 ;
 
-        int reverse1 = reverse.reverse(x);
+        int reverse1 = reverse.reverse2(x);
         System.out.println(reverse1);
 
     }
