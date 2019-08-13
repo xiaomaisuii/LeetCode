@@ -35,10 +35,30 @@ public class FirstUniqChar {
         return -1;
     }
 
+    /**
+     * 总结：时间复杂度为O(n),并且算法整体的思想特别好，使用字符的区间取变量
+     * 然后使用String 的indexOf() 和 lastIndexOf() 方法去查找出现的字符的位置。
+     * 最后的判断条件也很简单,也很容易理解。
+     * @param s
+     * @return
+     */
+    public int firstUniqChar1(String s) {
+        // 使用indexOf 返回指定字符在字符串中第一次出现的位置。如果没有就返回-1；
+        int index = -1;
+        for (char i = 'a';i<='z';i++){
+            int startIndex = s.indexOf(i);
+            if (startIndex != -1 && startIndex == s.lastIndexOf(i)){
+                index = (index == -1 || startIndex < index) ?  startIndex:index;
+            }
+        }
+        return index;
+
+    }
+
     public static void main(String[] args) {
         FirstUniqChar firstUniqChar = new FirstUniqChar();
-        String s = "cc";
-        int i = firstUniqChar.firstUniqChar(s);
+        String s = "ccaaaab";
+        int i = firstUniqChar.firstUniqChar1(s);
         System.out.println(i);
     }
 }
