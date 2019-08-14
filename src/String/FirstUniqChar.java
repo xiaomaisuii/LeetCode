@@ -47,12 +47,12 @@ public class FirstUniqChar {
         int index = -1;
         for (char i = 'a';i<='z';i++){
             int startIndex = s.indexOf(i);
+            // 如果满足只出现一次的元素，但是最后要比一下是谁先出现的。
             if (startIndex != -1 && startIndex == s.lastIndexOf(i)){
                 index = (index == -1 || startIndex < index) ?  startIndex:index;
             }
         }
         return index;
-
     }
 
     public static void main(String[] args) {
