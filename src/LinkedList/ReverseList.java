@@ -22,7 +22,6 @@ public class ReverseList {
             // 将头节点链接新节点后面;
             head.next = newHead;
             newHead = head;
-
             // 向后移动头节点;
             head = next;
         }
