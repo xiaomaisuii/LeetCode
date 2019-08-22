@@ -12,7 +12,8 @@ public class TreeTest {
     }
 
     public static void main(String[] args) {
-        Integer[] data = {5,3,6,2,4,null,7};
+//        Integer[] data = {5,3,6,null,null,null,7};
+        Integer[] data = {1,null,2,3};
         TreeNode[] nodes = new TreeNode[data.length];
         for(int i=0; i<data.length; i++){
             nodes[i] = data[i]==null ? null : new TreeNode(data[i].intValue());
