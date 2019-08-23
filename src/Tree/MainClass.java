@@ -1,5 +1,7 @@
 package Tree;
 
+import Array.Solution;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,22 +15,6 @@ import java.util.Queue;
  * @ Date: 2019-08-22 17:35
  * @ Description: 这个是树的LeetCode代码调试代码
  **/
-class Solution {
-    public List<Integer> preorderTraversal(TreeNode root) {
-        if (root == null) return new ArrayList<>();
-        List<Integer> integers = new ArrayList<>();
-        integers.add(root.val);
-        if (root.left!=null){
-            List<Integer> integersLeft = preorderTraversal(root.left);
-            integers.addAll(integersLeft);
-        }
-        if (root.right!=null){
-            List<Integer> integersRight = preorderTraversal(root.right);
-            integers.addAll(integersRight);
-        }
-        return integers;
-    }
-}
 
 public class MainClass {
     public static TreeNode stringToTreeNode(String input) {
@@ -79,6 +65,7 @@ public class MainClass {
         if (length == 0) {
             return "[]";
         }
+
         String result = "";
         for(int index = 0; index < length; index++) {
             Integer number = nums.get(index);
@@ -92,17 +79,15 @@ public class MainClass {
     }
 
     public static void main(String[] args) throws IOException {
-        // 这个是从命令行读取测试样例;
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        String line;
-        while ((line = in.readLine()) != null) {
-            TreeNode root = stringToTreeNode(line);
+        String line = "[1,null,2,3]";
 
-            List<Integer> ret = new Solution().preorderTraversal(root);
+        TreeNode root = stringToTreeNode(line);
 
-            String out = integerArrayListToString(ret);
+        List<Integer> ret = new InorderTraversal().inorderTraversal(root);
 
-            System.out.print(out);
-        }
+        String out = integerArrayListToString(ret);
+
+        System.out.print(out);
+
     }
 }

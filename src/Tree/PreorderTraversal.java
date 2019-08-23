@@ -30,22 +30,5 @@ public class PreorderTraversal {
         return integers;
     }
 
-    public static void main(String[] args) {
-        Integer[] data = {1,null,2,3};
-        TreeNode[] nodes = new TreeNode[data.length];
-        for(int i=0; i<data.length; i++){
-            nodes[i] = data[i]==null ? null : new TreeNode(data[i].intValue());
-        }
-        Tree tree = new Tree();
-        tree.createTreeAsLevel(nodes);
-        PreorderTraversal traversal = new PreorderTraversal();
-        List<Integer> integers = traversal.preorderTraversal(nodes[0]);
-        Object[] array = integers.toArray();
-        for (int i = 0; i < array.length; i++) {
-            System.out.println(array[i]);
-        }
-
-    }
-
 }
 
