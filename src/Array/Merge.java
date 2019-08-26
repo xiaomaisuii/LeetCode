@@ -27,7 +27,20 @@ public class Merge {
         Arrays.sort(nums1);
     }
 
-
+    public void merge1(int[] nums1, int m, int[] nums2, int n) {
+        int sum = n+m-1;
+        int n1=m-1;
+        n=n-1;
+        while(n>=0&&n1>=0){
+            if(nums1[n1]>=nums2[n]){
+                nums1[sum--] = nums1[n1--];
+            }
+            else nums1[sum--] = nums2[n--];
+        }
+        while(n>=0){
+            nums1[sum--] = nums2[n--];
+        }
+   }
 
     public static void main(String[] args) {
         Merge merge = new Merge();
@@ -35,7 +48,7 @@ public class Merge {
         int[] nums2 = {2,5,6};
         int m = 3;
         int n = 3;
-        merge.merge(nums1, m, nums2, n);
+        merge.merge1(nums1, m, nums2, n);
         for (int i = 0; i < m+n; i++) {
             System.out.println(nums1[i]);
         }
