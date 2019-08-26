@@ -83,7 +83,7 @@ public class MainClass {
 
         TreeNode root = stringToTreeNode(line);
 
-        List<Integer> ret = new PostorderTraversal().postorderTraversal(root);
+        List<Integer> ret = new PreorderTraversal().preorderTraversal1(root);
 
         String out = integerArrayListToString(ret);
 

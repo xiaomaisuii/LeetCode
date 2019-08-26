@@ -1,7 +1,7 @@
 package Tree;
 
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -33,4 +33,5 @@ public class InorderTraversal {
         }
         return integers;
     }
+
 }
