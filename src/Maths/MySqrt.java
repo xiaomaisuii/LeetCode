@@ -18,9 +18,10 @@ public class MySqrt {
         int left = 1;
         int right = x;
         int ans = 0;
-        while (left<right){
-            int mid = left + (left + right) / 2;
-            if (mid <= x / 2) {
+        while (left<=right){
+            // mid 为原来基础上加上一半 ？
+            int mid = left + (right - left) / 2;
+            if (mid <= x / mid) {
                 left = mid + 1;
                 ans = mid;
             }else {
@@ -34,7 +35,7 @@ public class MySqrt {
 
     public static void main(String[] args) {
         MySqrt sqrt = new MySqrt();
-        int i = sqrt.mySqrt(5);
+        int i = sqrt.mySqrt(8);
         System.out.println(i);
     }
 }
