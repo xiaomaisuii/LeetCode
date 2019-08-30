@@ -1,4 +1,4 @@
-package DynamicPlanning;
+package DynamicProgramming;
 
 /**
  * @ Author: Mr.Li
