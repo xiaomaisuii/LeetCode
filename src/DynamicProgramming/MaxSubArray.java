@@ -6,6 +6,11 @@ package DynamicProgramming;
  * @ Description: 最大子序和
  **/
 public class MaxSubArray {
+    /**
+     * 动态规划不一定飞抵有数组保存，如果是最优解也可以用一个变量代替最后的结果。
+     * @param nums
+     * @return
+     */
     public int maxSubArray(int[] nums) {
         int sum = 0;
         // 这个变量用来保存和的结果。
