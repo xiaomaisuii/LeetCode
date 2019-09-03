@@ -12,6 +12,9 @@ public class Rob {
      * @return
      */
     public int rob(int[] nums) {
+        if (nums.length==0){
+            return 0;
+        }
         int[] f = new int[nums.length];
         f[0] = nums[0];
         for (int i = 1; i < nums.length; i++) {
